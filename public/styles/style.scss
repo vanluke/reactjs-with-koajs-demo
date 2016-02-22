@@ -1,0 +1,32 @@
+$white: #fff;
+@import '_nav.scss';
+
+*,*:before,*:after{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+
+body {
+  background: red;
+  color: $white;
+  overflow-x: hidden;
+}
+
+.site-wrap {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  padding: 4em;
+  background-image: linear-gradient(135deg, rgb(254,255,255) 0%,rgb(221,241,249) 35%,rgb(160,216,239) 100%);
+  background-size: 200%;
+}

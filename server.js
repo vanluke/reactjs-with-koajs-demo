@@ -10,7 +10,7 @@ process.on('uncaughtException', (err) => {
 });
 
 const app = koa();
-const applicationPort = conf.get('port');
+const port = conf.get('port');
 const host = conf.get('host');
 
 app.use(json());
@@ -35,8 +35,8 @@ app.use(function* (next) {
   }
 });
 
-app.listen(applicationPort, host,() => {
-  console.log(`listening on ${applicationPort}`);
+app.listen(port, host,() => {
+  console.log(`listening on ${port}`);
 });
 
 export default app;
