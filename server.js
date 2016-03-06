@@ -17,7 +17,7 @@ app.use(json());
 
 app.use(serve(__dirname + '/public'));
 
-app.use(mount('/v0/api', routes.middleware()));
+app.use(mount('/api/v0', routes.middleware()));
 
 app.use(function* (next) {
   try {

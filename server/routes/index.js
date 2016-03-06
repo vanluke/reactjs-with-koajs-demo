@@ -1,6 +1,5 @@
 import router from 'koa-router';
 import config from './../config';
-import image from './image';
 import mongoDatabase from './../mongodbService';
 import airports from './airports';
 // import {Connection, Request} from 'tedious';
@@ -30,18 +29,6 @@ import airports from './airports';
 // );
 
 const routes = new router();
-routes.get('/test', function *() {
-  airports.bind(this);
-});
-
-// routes.get('/images', *(next) {
-//     console.log(`want image`);
-//     const result = yield image();
-//     this.type = result[0].type;
-//     this.body =  result.map(e=>{
-//         return e.body;
-//     });
-//     console.log(`want image and got it`);
-// });
+routes.get('/test',airports);
 
 export default routes;
