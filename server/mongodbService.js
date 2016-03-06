@@ -1,12 +1,19 @@
+import mongo from 'mongodb';
+import conf  from './config';
+const MongoClient = mongo.MongoClient;
+const mongoLab = conf.get('mongoLab');
+const url = `mongodb://${mongoLab.username}:${mongoLab.password}@${mongoLab.server}:${mongoLab.port}/arports`;
+console.log(url);
 
-MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds053140.mongolab.com:53140/blog', (err, database) => {
-  if (err) throw err;
+const connect = () => {
+  return new Promise ((resolve, reject) => {
+    MongoClient.connect(url, (err, database) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(database);
+      });
+  });
+};
 
-  db = database;
-  app.use('/graphql', GraphQLHTTP({
-    schema: schema(db),
-    graphiql: true
-  }));
-
-  app.listen(3000, () => console.log('Listening on port 3000'));
-});
+export default connect;

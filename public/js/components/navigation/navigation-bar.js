@@ -7,19 +7,16 @@ const navigationRef = 'buttonToggleManu';
 
 const generateLiks = () => {
   return [
-    { url: 'http://onet.pl', name: 'onet.pl' },
-    { url: 'http://facebook.com', name: 'facebook.com' },
-    { url: 'http://ford.com', name: 'ford.com' }
+    { url: '', name: 'home' },
+    { url: 'currency', name: 'currency' }
   ]
 };
 
 const links = generateLiks();
 
-
 export default class NavigationBar extends React.Component {
   constructor (props) {
     super(props);
-  //  this.toggleHamburgerButton = toggleHamburgerButton.bind(this);
   }
 
   toggleHamburgerButton (props, btn) {

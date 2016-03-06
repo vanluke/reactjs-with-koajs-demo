@@ -1,6 +1,12 @@
 {
     "port": "1337",
     "host": "localhost",
+    "mongoLab": {
+        "username": "",
+        "password": "",
+        "port": "",
+        "server": ""
+    },
     "tedious": {
         "userName": "",
         "password": "",
@@ -10,7 +16,7 @@
             "database": "Intranet_Purchasing",
             "rowCollectionOnDone": "true",
             "rowCollectionOnRequestCompletion": "true",
-             "useColumnNames": "true"
+            "useColumnNames": "true"
         }
     }
 }

@@ -29,6 +29,11 @@ const configuration = convict({
     doc: 'tedious configuration.',
     format: Object,
     default: {}
+  },
+  mongoLab: {
+    doc: 'mongo lab configuration.',
+    format: Object,
+    default: {}
   }
 });
 const env = configuration.get('env');
