@@ -1,0 +1,95 @@
+@mixin element($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+@mixin modifier($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+.modal {
+  input {
+    background-image: none;
+    border: none;
+    font: 100%/1.5em "Varela Round", sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: all .3s;
+    &[type="text"] {
+      background: #eee;
+      color: #777;
+      padding: 4px 10px;
+      width: 100%;
+    }
+  }
+  position:fixed;
+  background-color: rgba(0,0,0,0.5);
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:999;
+  opacity:0;
+  pointer-events:none;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+  transition:all 0.3s;
+  &.show {
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  @include element('content') {
+    width:400px;
+    position:relative;
+    margin:10% auto;
+    padding:2rem;
+    background:#fff;
+    color:#444;
+    @include element('button') {
+      @include modifier('submit') {
+        background: #33cc77;
+        color: #fff;
+        display: block;
+        padding: 5px;
+        width: 100px;
+        border: none;
+        &:hover {
+          background: #00a1ff;
+        }
+      }
+    }
+    @include element('header') {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    @include modifier('row') {
+      @include modifier('small') {
+        input {
+          &[type="text"] {
+            width: 13%;
+          }
+        }
+      }
+    }
+  }
+  @include element('anachor') {
+    @include modifier('close') {
+      color:#aaa;
+      line-height:50px;
+      font-size:80%;
+      position:absolute;
+      right:0;
+      text-align:center;
+      top:0;
+      width:70px;
+      text-decoration:none;
+      &:hover {
+        color:#000;
+      }
+    }
+  }
+}

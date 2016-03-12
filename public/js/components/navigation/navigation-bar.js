@@ -1,14 +1,14 @@
 import React from 'react';
 import Navigation from './navigation';
 import HamburgerButton from './hamburger-button';
-
+import '!style!css!sass!./_nav.scss';
 const buttonRef = 'buttonToggleManu';
 const navigationRef = 'buttonToggleManu';
 
 const generateLiks = () => {
   return [
     { url: '', name: 'home' },
-    { url: 'currency', name: 'currency' }
+    { url: 'dogs', name: 'dogs' }
   ]
 };
 

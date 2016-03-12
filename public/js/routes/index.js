@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import {render} from 'react-dom';
 import NavigationBar from './../components/navigation/navigation-bar';
-import Currency from './../components/currency/currency';
-import Checkout from './../components/checkout';
+import Dogs from './../components/dogs';
+import Home from './../components/home';
 
 class App extends Component {
   render(){
@@ -14,20 +14,11 @@ class App extends Component {
   }
 }
 
-class Home extends Component {
-  render(){
-    return (
-      <div>Welcome!</div>
-    );
-  }
-}
-
 ReactDOM.render(
-  (<Router>
+  (<Router history={hashHistory}>
     <Route path='/' component={App}>
-     <IndexRoute component={Home}/>
-      <Route path='/currency' component={Currency} />
-      <Route path='/checkout' component={Checkout} />
+      <IndexRoute component={Home}/>
+      <Route path='/dogs' component={Dogs} />
     </Route>
   </Router>), document.getElementById('root')
 );

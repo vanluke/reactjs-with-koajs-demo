@@ -4,6 +4,7 @@ import mount from 'koa-mount';
 import conf from './server/config.js';
 import routes from './server/routes';
 import json from 'koa-json';
+import cors from 'koa-cors';
 
 process.on('uncaughtException', (err) => {
   console.log(err)
@@ -14,6 +15,8 @@ const port = conf.get('port');
 const host = conf.get('host');
 
 app.use(json());
+
+app.use(cors());
 
 app.use(serve(__dirname + '/public'));
 

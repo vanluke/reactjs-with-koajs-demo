@@ -10,10 +10,10 @@
     "tedious": {
         "userName": "",
         "password": "",
-        "server": "10.0.0.207",
+        "server": "",
         "options": {
-            "port": "1433",
-            "database": "Intranet_Purchasing",
+            "port": "",
+            "database": "",
             "rowCollectionOnDone": "true",
             "rowCollectionOnRequestCompletion": "true",
             "useColumnNames": "true"

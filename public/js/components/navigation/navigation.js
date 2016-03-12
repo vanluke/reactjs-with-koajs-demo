@@ -6,8 +6,8 @@ const getClass = (openClose) => {
 };
 
 const createLinkItems = (items) => {
-  return items.map((item) => {
-    return <li><Link to={`${item.url}`}>{item.name}</Link></li>
+  return items.map((item, i) => {
+    return <li key={i}><Link to={`${item.url}`}>{item.name}</Link></li>
   });
 };
 

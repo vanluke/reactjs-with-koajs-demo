@@ -1,5 +1,5 @@
-# Relay demo
-## NodeJS - relay and reactjs
+# React demo
+## NodeJS -koajs
 
 # Requirements
 
