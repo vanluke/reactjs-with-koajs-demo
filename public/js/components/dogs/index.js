@@ -1,48 +1,49 @@
-import React, {Component} from 'react';
-import _fetch from 'whatwg-fetch';
-import Payment from './../payment';
 import '!style!css!sass!./_dogs.scss';
+import '!style!css!sass!toastr/toastr.scss';
+import React, {Component} from 'react';
+import Payment from './../payment';
 import { getDogs } from './dogsApi';
+import Dog from './dog';
 
-export default class Dog extends Component {
+import toastr from 'toastr';
+
+const onSubmit = (dog) => {
+  toastr.success(`Successfly charged with $ ${dog.amount}`);
+  close();
+  return false;
+};
+
+const close = () => {
+    const el = document.getElementById('modal');
+    el.classList.toggle('show');
+};
+
+export default class Dogs extends Component {
   componentDidMount () {
-        getDogs().then((dogs) => {
-          this.setState ({dogs});
-        });
+    getDogs().then((dogs) => {
+      this.setState ({dogs});
+    });
   }
   mapDogs (dogs) {
     if (!dogs || dogs.length === 0) {
       return;
     }
     return dogs.map((dog, i)=> {
-      const imgSrc = dog['photo-large'];
-      return <div className="card" key={i}>
-             <div className="card__header">
-              <img src={imgSrc} width="226" height="180" />
-            </div>
-            <div>
-            <div className="card__content">
-              <h3 className="card__content__header">{dog.name}</h3>
-              <h4 className="card__content__header--small">{dog.breed}</h4>
-              <p className="card__content__paragraph">{dog.price}</p>
-            </div>
-            <div className="card__footer">
-              <button onClick={this.handleBuy.bind(this, dog)} className="card__button">Buy</button>
-            </div>
-          </div>
-        </div>
+      return <Dog dog={dog} key={i} handleBuy={this.showPayment.bind(this)} />
     });
   }
-  handleBuy (dog, event) {
+  showPayment (dog, event) {
     const el = document.getElementById('modal');
-    el.classList.add('show');
+    el && el.classList ? el.classList.add('show') : '';
     this.setState({dog});
 
   }
   render () {
     const {dogs, dog} = this.state;
     const domDogs = this.mapDogs(dogs);
-    return <div><div className="dogs">{domDogs} </div><Payment details={dog} /></div>
+    return <div><div className="dogs">{domDogs} </div>
+      <Payment hook="payment" onSubmit={onSubmit.bind(this)} details={dog} close={close.bind(this)} />
+    </div>
   }
 
   state = {

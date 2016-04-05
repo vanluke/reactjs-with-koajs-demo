@@ -1,9 +1,7 @@
+import '!style!css!sass!./_nav.scss';
 import React from 'react';
 import Navigation from './navigation';
 import HamburgerButton from './hamburger-button';
-import '!style!css!sass!./_nav.scss';
-const buttonRef = 'buttonToggleManu';
-const navigationRef = 'buttonToggleManu';
 
 const generateLiks = () => {
   return [
@@ -28,11 +26,9 @@ export default class NavigationBar extends React.Component {
   render () {
     const onClick = this.toggleHamburgerButton.bind(this);
     const { openClose } = this.state;
-    const hamburgerButton = HamburgerButton({ onClick, openClose });
-    const navigationList = Navigation({ links, openClose });
     return <div>
-      {hamburgerButton}
-      {navigationList}
+      <HamburgerButton onClick={onClick} openClose={openClose} />
+      <Navigation links={links} openClose={openClose} />
     </div>
   }
 

@@ -24,16 +24,6 @@ const configuration = convict({
     format: String,
     default: 'localhost',
     env: 'HOST'
-  },
-  tedious: {
-    doc: 'tedious configuration.',
-    format: Object,
-    default: {}
-  },
-  mongoLab: {
-    doc: 'mongo lab configuration.',
-    format: Object,
-    default: {}
   }
 });
 const env = configuration.get('env');

@@ -1,14 +1,5 @@
-@mixin element($element) {
-  &__#{$element} {
-    @content;
-  }
-}
-
-@mixin modifier($modifier) {
-  &--#{$modifier} {
-    @content;
-  }
-}
+@import './../../_mixins.scss';
+@import "./../../_variables.scss";
 
 .modal {
   input {
@@ -52,6 +43,7 @@
     @include element('button') {
       @include modifier('submit') {
         background: #33cc77;
+        cursor: pointer;
         color: #fff;
         display: block;
         padding: 5px;
@@ -78,6 +70,7 @@
   }
   @include element('anachor') {
     @include modifier('close') {
+      cursor: pointer;
       color:#aaa;
       line-height:50px;
       font-size:80%;

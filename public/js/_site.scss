@@ -1,0 +1,19 @@
+@import "./_mixins.scss";
+@import "./_variables.scss";
+
+*,*:before,*:after{
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  margin: 0 auto;
+  padding:0;
+}
+
+.site {
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  background: $red;
+  color: $white;
+  overflow-x: hidden;
+}

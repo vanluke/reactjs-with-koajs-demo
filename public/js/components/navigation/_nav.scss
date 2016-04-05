@@ -1,6 +1,5 @@
-$red: #e50404;
-$black: #000;
-$white: #fff;
+@import './../../_mixins.scss';
+@import "./../../_variables.scss";
 
 @keyframes showNav {
   0% { width: 10px ;}
@@ -11,7 +10,7 @@ $white: #fff;
   100% { width: 300px; }
 }
 
-#navigation {
+.navigation {
   &.hide {
     display: none;
     margin-left: -300px;
@@ -54,82 +53,81 @@ $white: #fff;
   }
 }
 .menu {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 96px;
-    height: 96px;
-    font-size: 0;
-    text-indent: -9999px;
-    background-color: transparent;
-    appearance: none;
-    box-shadow: none;
-    border-radius: none;
-    border: none;
-    cursor: pointer;
-    background: transpanent;
-    outline:none;
-    background-repeat:no-repeat;
-    transition: background 0.3s;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -9999px;
+  background-color: transparent;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  background: transpanent;
+  outline:none;
+  background-repeat:no-repeat;
+  transition: background 0.3s;
   z-index: 2;
-    &:focus {
-      outline: none;
-    }
-
-    span {
-      display: block;
+  &:focus {
+    outline: none;
+  }
+  span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: $white;
+    &::after,  &::before {
       position: absolute;
-      top: 44px;
-      left: 18px;
-      right: 18px;
+      display: block;
+      left: 0;
+      width: 100%;
       height: 8px;
-      background: $white;
-      &::after,  &::before {
-        position: absolute;
-        display: block;
-        left: 0;
-        width: 100%;
-        height: 8px;
-        background-color: $white;
-        content: "";
+      background-color: $white;
+      content: "";
+    }
+    &::after {
+      bottom: -20px;
+    }
+    &::before {
+      top: -20px;
+    }
+  }
+  &.menu--red {
+    span {
+      transition: transform 0.3s;
+      &::before {
+        transform-origin: top left;
+        transition: transform 0.3s, width 0.3s, top 0.3s;
       }
       &::after {
-         bottom: -20px;
-      }
-      &::before {
-         top: -20px;
+        transform-origin: bottom left;
+        transition: transform 0.3s, width 0.3s, bottom 0.3s;
       }
     }
-    &.menu-hamburger-red {
+
+    &.is-active {
       span {
-        transition: transform 0.3s;
+        transform: rotate(180deg);
+        &::before, &::after {
+          width: 50%;
+        }
         &::before {
-          transform-origin: top left;
-          transition: transform 0.3s, width 0.3s, top 0.3s;
+          top: 0;
+          transform: translateX(-8px) translateY(4px) rotate(-45deg);
         }
         &::after {
-           transform-origin: bottom left;
-           transition: transform 0.3s, width 0.3s, bottom 0.3s;
-        }
-      }
-
-      &.is-active {
-        span {
-          transform: rotate(180deg);
-          &::before, &::after {
-             width: 50%;
-          }
-          &::before {
-            top: 0;
-            transform: translateX(-8px) translateY(4px) rotate(-45deg);
-          }
-          &::after {
-              bottom: 0;
-              transform: translateX(-8px) translateY(-4px) rotate(45deg);
-          }
+          bottom: 0;
+          transform: translateX(-8px) translateY(-4px) rotate(45deg);
         }
       }
     }
+  }
 }

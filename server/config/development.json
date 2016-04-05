@@ -1,22 +1,4 @@
 {
     "port": "1337",
-    "host": "localhost",
-    "mongoLab": {
-        "username": "",
-        "password": "",
-        "port": "",
-        "server": ""
-    },
-    "tedious": {
-        "userName": "",
-        "password": "",
-        "server": "",
-        "options": {
-            "port": "",
-            "database": "",
-            "rowCollectionOnDone": "true",
-            "rowCollectionOnRequestCompletion": "true",
-            "useColumnNames": "true"
-        }
-    }
+    "host": "localhost"
 }

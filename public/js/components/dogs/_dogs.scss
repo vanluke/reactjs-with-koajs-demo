@@ -1,27 +1,10 @@
-
-$button-color: #3570f9;
-$white: #fff;
-$btn-hover: rgb(3,29,73);
-$card-background: #f4f4f4;
-$card-text-color: #727272 ;
-$card-header-small-color: #FF5252;
-$card-footer-border-color: #B6B6B6;
-
-@mixin element($element) {
-  &__#{$element} {
-    @content;
-  }
-}
-
-@mixin modifier($modifier) {
-  &--#{$modifier} {
-    @content;
-  }
-}
+@import './../../_mixins.scss';
+@import "./../../_variables.scss";
 
 %button {
   font-size: 0.875em;
   padding: 1em;
+  cursor: pointer;
   border-radius: 0;
   border: 0 solid $button-color;
   box-shadow: 0 1px 2px 0 rgba($btn-hover,0.2);
@@ -29,14 +12,16 @@ $card-footer-border-color: #B6B6B6;
   text-decoration: none;
   min-width:20px;
   min-height: 20px;
-  &:hover{
+  &:hover {
     box-shadow: 0 1px 3px 0 rgba($btn-hover,0.3);
   }
-  &:active{
+  &:active {
     box-shadow: 0 0 2px 0 rgba($btn-hover,0.3);
   }
 }
-
+.dogs {
+    width: 1000px;
+}
 .card {
   background-color: $card-background;
   width: 300px;
@@ -70,18 +55,15 @@ $card-footer-border-color: #B6B6B6;
       font-size: 25px;
       margin-bottom: 0;
       color: #303F9F;
-      font-family: 'Montserrat', sans-serif;
       @include modifier('small') {
         font-size: 14px;
         margin-top: 0;
         color: $card-header-small-color;
-        font-family: 'Montserrat', sans-serif;
       }
     }
     @include element('paragraph') {
       color: $card-text-color;
       font-size: 12px;
-      font-family: 'Open Sans', sans-serif;
     }
   }
   @include element('footer') {

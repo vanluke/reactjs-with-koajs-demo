@@ -1,5 +1,6 @@
-# React demo
+# ReactJS demo
 ## NodeJS -koajs
+## Setup localhost port number under server/config/development.json || Default = 1337
 
 # Requirements
 
@@ -7,10 +8,9 @@
   - babel >= 6
   - sass
   - webpack
-  - react, reactdom
+  - reactjs
 
 # Description
 
   - npm install
-  - npm start-server
-  - npm start-client
+  - npm start

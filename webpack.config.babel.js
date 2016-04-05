@@ -5,14 +5,16 @@ const extractCSS = new ExtractTextPlugin('public/styles/[name].css');
 export default {
   devtool: 'source-map',
   entry: [
-    `${__dirname}/public/js/app`
+    `${__dirname}/public/js`
   ],
   output: {
     path: `${__dirname}/public`,
     filename: `bundle.js`
   },
+  resolveLoader: { root: path.join(__dirname, 'node_modules') },
   module: {
     loaders: [{ test: /\.js?$/,  exclude: /node_modules/, loader: 'babel' },
+    { test: /\.css$/, loader: "style!css" },
     { test: /\.scss$/i, loader: ExtractTextPlugin.extract('style', 'css!sass') },
     { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
     { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },

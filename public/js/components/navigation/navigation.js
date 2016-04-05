@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const getClass = (openClose) => {
-  return `${openClose ? '' : 'hide'}`;
+  return `navigation ${openClose ? '' : 'hide'}`;
 };
 
 const createLinkItems = (items) => {
@@ -11,14 +11,19 @@ const createLinkItems = (items) => {
   });
 };
 
-const navigationList = props => {
+const NavigationList = props => {
   const { links, openClose } = props;
-  const navigationItems = createLinkItems (links);
-  return <nav id="navigation" className={getClass(openClose)}>
+  const navigationItems = createLinkItems (links;
+  return <nav className={getClass(openClose)} id="navigation">
     <ul>
       {navigationItems}
     </ul>
   </nav>
 };
 
-export default navigationList;
+NavigationList.PropTypes = {
+  links: React.PropTypes.array.isRequired,
+  openClose: React.PropTypes.func.isRequired
+};
+
+export default NavigationList;

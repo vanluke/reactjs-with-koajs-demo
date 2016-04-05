@@ -1,5 +1,3 @@
-import 'es6-promise';
-import _fetch from 'whatwg-fetch';
 import config from './../../config';
 
 const dogsUrl = `${config.api.url}/dogs`;
